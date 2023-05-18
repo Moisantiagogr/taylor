@@ -21,7 +21,7 @@ var cambiarTextoBtn = document.getElementById("cambiarTextoBtn");
     var srcOriginal = imagen.src; // Guardar el src original de la imagen
 
     cambiarImagenBtn.addEventListener("click", function() {
-      var nuevaImagen = "olv.gif"; // Ruta de la nueva imagen
+      var nuevaImagen = "imagenes/olv.gif"; // Ruta de la nueva imagen
       imagen.src = nuevaImagen;
     });
 
@@ -48,3 +48,31 @@ var cambiarTextoBtn = document.getElementById("cambiarTextoBtn");
       var div = document.getElementById("miDiv");
       div.innerHTML = ""; // Eliminar todo el contenido del div
     }
+
+// modificar despues 
+    var images = [
+        "imagen1.jpg",
+        "imagen2.jpg",
+        "imagen3.jpg",
+        "imagen4.jpg"
+      ];
+      
+      var currentIndex = 0;
+      var imageElement = document.getElementById("image");
+      
+      function showImage() {
+        imageElement.src = images[currentIndex];
+      }
+      
+      function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage();
+      }
+      
+      function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage();
+      }
+      
+      // Mostrar la primera imagen al cargar la página
+      showImage();
